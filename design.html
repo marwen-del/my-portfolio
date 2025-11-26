@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Design Portfolio - Marwen</title>   
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="stylesheet" href="css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="css/owl.theme.default.min.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="stylesheet" href="css/aos.css" />
+    <link rel="stylesheet" href="css/ionicons.min.css" />
+    <link rel="stylesheet" href="css/flaticon.css" />
+    <link rel="stylesheet" href="css/icomoon.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    
+    <style>
+      /* Smooth scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Hero Section - Matching main index style */
+      .design-hero {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .design-hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.03)"/></svg>');
+        opacity: 0.4;
+      }
+      
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+      
+      .hero-content h1 {
+        font-size: 56px;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+      
+      .hero-content p {
+        font-size: 20px;
+        color: rgba(255,255,255,0.9);
+        margin-bottom: 30px;
+      }
+
+      /* Stats Section */
+      .stats-section {
+        background: white;
+        padding: 60px 0;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+      }
+      
+      .stat-item {
+        text-align: center;
+        padding: 20px;
+      }
+      
+      .stat-number {
+        font-size: 48px;
+        font-weight: 700;
+        color: #1a1a1a;
+        margin-bottom: 10px;
+        display: block;
+      }
+      
+      .stat-label {
+        font-size: 16px;
+        color: #666;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 500;
+      }
+
+      /* Portfolio Grid Section */
+      .portfolio-section {
+        background: #141414;
+        padding: 80px 0;
+      }
+      
+      .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+      
+      .section-title h2 {
+        font-size: 42px;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 15px;
+      }
+      
+      .section-title p {
+        font-size: 18px;
+        color: #a0a0a0;
+      }
+
+      /* Masonry Grid */
+      .masonry-grid {
+        column-count: 3;
+        column-gap: 25px;
+      }
+      
+      @media (max-width: 992px) {
+        .masonry-grid {
+          column-count: 2;
+        }
+        .hero-content h1 {
+          font-size: 42px;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .masonry-grid {
+          column-count: 1;
+        }
+        .hero-content h1 {
+          font-size: 32px;
+        }
+      }
+      
+      .masonry-item {
+        break-inside: avoid;
+        margin-bottom: 25px;
+        page-break-inside: avoid;
+      }
+
+      /* Design Card */
+      .design-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 0px 5px rgba(255, 255, 255, 0.5);
+        transition: all 0.3s ease;
+      }
+      
+      .design-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+      }
+      
+      .design-image {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+        background: #f5f5f5;
+      }
+      
+      .design-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+        transition: transform 0.3s ease;
+      }
+      
+      .design-card:hover .design-image img {
+        transform: scale(1.05);
+      }
+      
+      .design-info {
+        padding: 20px;
+      }
+      
+      .design-category {
+        display: inline-block;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      
+      .poster-cat {
+        background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+        color: white;
+      }
+      
+      .logo-cat {
+        background: linear-gradient(135deg, #2c2c2c, #3a3a3a);
+        color: white;
+      }
+      
+      .mockup-cat {
+        background: linear-gradient(135deg, #3a3a3a, #1a1a1a);
+        color: white;
+      }
+      
+      .brand-cat {
+        background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+        color: white;
+      }
+      
+      .design-info h4 {
+        font-size: 18px;
+        font-weight: 600;
+        color: #2c3e50;
+        margin-bottom: 8px;
+      }
+      
+      .design-info p {
+        font-size: 14px;
+        color: #666;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* CTA Section */
+      .cta-section {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+        padding: 80px 0;
+        color: white;
+        text-align: center;
+      }
+      
+      .cta-section h2 {
+        font-size: 42px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+      
+      .cta-section p {
+        font-size: 20px;
+        margin-bottom: 40px;
+        opacity: 0.95;
+      }
+      
+      .cta-section .btn {
+        margin: 10px;
+        padding: 15px 40px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+      }
+      
+      .btn-white {
+        background: white;
+        color: #1a1a1a;
+        border: none;
+      }
+      
+      .btn-white:hover {
+        background: #f8f9fa;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      }
+      
+      .btn-outline-white {
+        background: transparent;
+        color: white;
+        border: 2px solid white;
+      }
+      
+      .btn-outline-white:hover {
+        background: white;
+        color: #1a1a1a;
+        transform: translateY(-3px);
+      }
+
+      /* Footer */
+      .ftco-footer {
+        background: #2c3e50;
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+      }
+      
+      .ftco-footer p {
+        margin: 0;
+        color: rgba(255,255,255,0.8);
+      }
+
+      /* Navbar adjustments */
+      .ftco_navbar {
+        background: #000000 !important;
+        backdrop-filter: blur(10px);
+      }
+      
+      .navbar-brand {
+        font-size: 24px;
+        font-weight: 700;
+        color: white !important;
+      }
+      
+      .nav-link {
+        color: rgba(255,255,255,0.9) !important;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      
+      .nav-link:hover {
+        color: white !important;
+      }
+
+      /* Animations */
+      .fade-in {
+        animation: fadeIn 0.6s ease-in;
+      }
+      
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light site-navbar-target" id="ftco-navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Marwen Portfolio</a>
+        <button class="navbar-toggler js-fh5co-nav-toggle fh5co-nav-toggle" type="button" data-toggle="collapse" data-target="#ftco-nav">
+          <span class="oi oi-menu"></span> Menu
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+          <ul class="navbar-nav nav ml-auto">
+            <li class="nav-item"><a href="index.html#home-section" class="nav-link"><span>Home</span></a></li>
+            <li class="nav-item"><a href="index.html#about-section" class="nav-link"><span>About</span></a></li>
+            <li class="nav-item"><a href="index.html#services-section" class="nav-link"><span>Services</span></a></li>
+            <li class="nav-item"><a href="index.html#contact-section" class="nav-link"><span>Contact</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="design-hero">
+      <div class="container hero-content">
+        <div class="row justify-content-center">
+          <div class="col-md-10 text-center fade-in">
+            <h1>Design Portfolio</h1>
+            <p>Where creativity meets functionality</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 stat-item fade-in">
+            <span class="stat-number">100+</span>
+            <span class="stat-label">Designs Created</span>
+          </div>
+          <div class="col-md-4 stat-item fade-in">
+            <span class="stat-number">50+</span>
+            <span class="stat-label">Satisfied Clients</span>
+          </div>
+          <div class="col-md-4 stat-item fade-in">
+            <span class="stat-number">3+</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="portfolio-section">
+      <div class="container-fluid" style="max-width: 1400px;">
+        <div class="section-title fade-in">
+          <h2>Design Collection</h2>
+          <p>Posters • Logos • Mockups • Branding</p>
+        </div>
+
+        <div class="masonry-grid">
+
+          <!-- Design Item 1 -->
+          <div class="masonry-item fade-in">
+            <div class="design-card">
+              <div class="design-image">
+                <img src="images/6280371.jpg" alt="Event Promotion Poster">
+              </div>
+              <div class="design-info">
+                <span class="design-category poster-cat">Poster</span>
+                <p>Vibrant promotional design for social media marketing campaigns</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Design Item 2 -->
+          <div class="masonry-item fade-in">
+            <div class="design-card">
+              <div class="design-image">
+                <img src="images/legacy.png" alt="Brand Identity Logo">
+              </div>
+              <div class="design-info">
+                <span class="design-category logo-cat">Logo</span>
+                <p>Modern logo design with unique typography and visual impact</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Design Item 3 -->
+          <div class="masonry-item fade-in">
+            <div class="design-card">
+              <div class="design-image">
+                <img src="images/tnvsfr1.jpg" alt="Football Poster">
+              </div>
+              <div class="design-info">
+                <span class="design-category poster-cat">Poster</span>
+                <p>Football poster</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Design Item 4 -->
+          <div class="masonry-item fade-in">
+            <div class="design-card">
+              <div class="design-image">
+                <img src="images/444444444.jpg" alt="Social Media Post">
+              </div>
+              <div class="design-info">
+                <span class="design-category poster-cat">Poster</span>
+                <p>Social Media Post</p>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Design Item 6 -->
+          <div class="masonry-item fade-in">
+            <div class="design-card">
+              <div class="design-image">
+                <img src="images/WhatsApp Image 2025-10-21 à 12.23.34_8adee47f.jpg" alt="Billboard Design">
+              </div>
+              <div class="design-info">
+                <span class="design-category brand-cat">Billboard</span>
+                <p>Visual storytelling and parody design</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Design Item 7 -->
+          <div class="masonry-item fade-in">
+            <div class="design-card">
+              <div class="design-image">
+                <img src="images/samedi soir.png" alt="Event Poster">
+              </div>
+              <div class="design-info">
+                <span class="design-category poster-cat">Poster</span>
+                <p>Event poster</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Design Item 8 -->
+          <div class="masonry-item fade-in">
+            <div class="design-card">
+              <div class="design-image">
+                <img src="images/gg.jpg" alt="Business Card">
+              </div>
+              <div class="design-info">
+                <span class="design-category mockup-cat">Business Card</span>
+                <p>Business card for my final year project</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Design Item 9 -->
+          <div class="masonry-item fade-in">
+            <div class="design-card">
+              <div class="design-image">
+                <img src="images/SHOPé.png" alt="Box Mockup">
+              </div>
+              <div class="design-info">
+                <span class="design-category mockup-cat">Mockup</span>
+                <p>Box logo Mockup</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Design Item 10 -->
+          <div class="masonry-item fade-in">
+            <div class="design-card">
+              <div class="design-image">
+                <img src="images/WhatsApp Image 2025-10-21 à 12.23.31_01318805.jpg" alt="Concert Poster">
+              </div>
+              <div class="design-info">
+                <span class="design-category poster-cat">Poster</span>
+                <p>Concert promotion with bold graphics and energy</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Design Item 11 -->
+          <div class="masonry-item fade-in">
+            <div class="design-card">
+              <div class="design-image">
+                <img src="images/vicci.png" alt="Brand Identity">
+              </div>
+              <div class="design-info">
+                <span class="design-category brand-cat">Branding</span>
+                <p>Professional business brand identity system</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Design Item 12 -->
+          <div class="masonry-item fade-in">
+            <div class="design-card">
+              <div class="design-image">
+                <img src="images/Free Shop Wall Logo Sign Mockup.jpg" alt="Wall Mockup">
+              </div>
+              <div class="design-info">
+                <span class="design-category mockup-cat">Mockup</span>
+                <p>Wall Mockup</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <h2>Let's Create Something Amazing</h2>
+            <p>Ready to bring your vision to life with stunning design?</p>
+            <div>
+              <a href="index.html#contact-section" class="btn btn-white">
+                Start Your Project
+              </a>
+              <a href="marketing.html" class="btn btn-outline-white">
+                View Marketing Work
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="ftco-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> Marwen Slimen - All rights reserved</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
